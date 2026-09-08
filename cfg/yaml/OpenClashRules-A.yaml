@@ -336,7 +336,7 @@ proxy-groups:
     type: select
     filter: '(?i)(🇰🇷|\bKR(?:[-_ ]?\d+(?:[-_ ]?[A-Za-z]{2,})?)?\b|Korea|KOREA|KOR|首尔|韩|韓|春川|Chuncheon|ICN)'
     use:
-      - provider1"
+      - provider1
 
   - name: "Daly"
     type: url-test
