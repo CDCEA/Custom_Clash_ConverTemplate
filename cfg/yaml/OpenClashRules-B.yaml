@@ -340,7 +340,7 @@ proxy-groups:
   - name: "Daly"
     type: url-test
     url: https://cp.cloudflare.com/generate_204
-    filter: '日用.*香港|美国|狮城|日本'
+    filter: '日用'
     interval: 300
     tolerance: 50
     use:
