@@ -81,21 +81,24 @@ proxy-groups:
       - "TS3"
       - "DIRECT"
 
-  # - name: "Claude"
-  #   type: select
-  #   url: https://www.gstatic.com/generate_204
-  #   interval: 300
-  #   proxies:
-  #     - "US"
-  #     - "USGJ"
-  #     - "HK"
-  #     - "SG"
-  #     - "JP"
-  #     - "TW"
-  #     - "Proxies"
-  #     - "TS1"
-  #     - "TS2"
-  #     - "TS3"
+  - name: "Claude"
+    type: select
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    proxies:
+      - "US"
+      - "USGJ"
+      - "HK"
+      - "SG"
+      - "JP"
+      - "TW"
+      - "Proxies"
+      - "TS1"
+      - "TS2"
+      - "TS3"
+    filter: '高级.*美国'
+    use:
+      - provider1
 
   - name: "Gemini"
     type: select
@@ -499,7 +502,12 @@ rules:
   - "GEOSITE,category-social-media-!cn,社交媒体"
   - "GEOSITE,onedrive,OneDrive"
   - "GEOSITE,openai,ChatGPT"
-  # - "GEOSITE,anthropic,Claude"
+  - "RULE-SET,Anthropic-Extra,Claude"
+  - "GEOSITE,anthropic,Claude"
+  - "KEYWORD:datadog,Claude"
+  - "KEYWORD:sentry,Claude"
+  - "KEYWORD:sift,Claude"
+  - "GEOSITE:category-ntp,Claude"
   - "GEOSITE,google-gemini,Gemini"
   - "GEOSITE,category-ai-!cn,AI服务"
   - "GEOSITE,github,GitHub"
@@ -538,6 +546,15 @@ rules:
 # Domain/IP 规则优先使用 MRS；包含端口等复合规则时使用 Classical YAML。
 # 所有远程规则提供者统一按 28800 秒（8 小时）更新。
 rule-providers:
+
+  Anthropic-Extra:
+    type: http
+    behavior: classical
+    format: yaml
+    url: "https://raw.githubusercontent.com/CDCEA/Custom_Clash_ConverTemplate/refs/heads/main/cfg/yaml/Anthropic-Extra.yaml"
+    path: ./rule_provider/Anthropic-Extra.yaml
+    interval: 28800
+    
   Nonstandard_Port_Direct:
     behavior: classical
     interval: 28800
