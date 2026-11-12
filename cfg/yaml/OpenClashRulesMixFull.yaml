@@ -81,21 +81,21 @@ proxy-groups:
       - "TS3"
       - "DIRECT"
 
-  - name: "Claude"
-    type: select
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    proxies:
-      - "US"
-      - "USGJ"
-      - "HK"
-      - "SG"
-      - "JP"
-      - "TW"
-      - "Proxies"
-      - "TS1"
-      - "TS2"
-      - "TS3"
+  # - name: "Claude"
+  #   type: select
+  #   url: https://www.gstatic.com/generate_204
+  #   interval: 300
+  #   proxies:
+  #     - "US"
+  #     - "USGJ"
+  #     - "HK"
+  #     - "SG"
+  #     - "JP"
+  #     - "TW"
+  #     - "Proxies"
+  #     - "TS1"
+  #     - "TS2"
+  #     - "TS3"
 
   - name: "Gemini"
     type: select
@@ -499,7 +499,7 @@ rules:
   - "GEOSITE,category-social-media-!cn,社交媒体"
   - "GEOSITE,onedrive,OneDrive"
   - "GEOSITE,openai,ChatGPT"
-  - "GEOSITE,anthropic,Claude"
+  # - "GEOSITE,anthropic,Claude"
   - "GEOSITE,google-gemini,Gemini"
   - "GEOSITE,category-ai-!cn,AI服务"
   - "GEOSITE,github,GitHub"
