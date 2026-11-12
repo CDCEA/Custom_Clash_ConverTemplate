@@ -20,11 +20,8 @@ proxy-providers:
     header:  # 可选：自定义 HTTP 请求头
     health-check:
       enable: true
-      url: https://cp.cloudflare.com/generate_204
+      url: https://www.gstatic.com/generate_204
       interval: 300
-      timeout: 5000
-      lazy: false
-      expected-status: 204
     override:
       udp: true
       # 不建议默认跳过 TLS 证书校验；仅在明确需要兼容特定节点时启用
@@ -32,11 +29,14 @@ proxy-providers:
       # additional-prefix: "[provider1]"
       # additional-suffix: "test"
 
-      # 策略组候选项和节点注入逻辑与当前 Custom_Clash.ini 保持一致。
+# ==================== 代理策略组 Proxy Groups ====================
+# 策略组候选项和节点注入逻辑与当前 Custom_Clash.ini 保持一致。
 proxy-groups:
   # --- 核心与业务策略组 ---
   - name: "Proxies"
     type: select
+    url: https://www.gstatic.com/generate_204
+    interval: 300
     proxies:
       - "HK"
       - "Daly"
@@ -50,6 +50,8 @@ proxy-groups:
 
   - name: "ChatGPT"
     type: select
+    url: https://www.gstatic.com/generate_204
+    interval: 300
     proxies:
       - "US"
       - "USGJ"
@@ -64,6 +66,8 @@ proxy-groups:
 
   - name: "GitHub"
     type: select
+    url: https://www.gstatic.com/generate_204
+    interval: 300
     proxies:
       - "Proxies"
       - "Daly"
@@ -77,8 +81,42 @@ proxy-groups:
       - "TS3"
       - "DIRECT"
 
+  - name: "Claude"
+    type: select
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    proxies:
+      - "US"
+      - "USGJ"
+      - "HK"
+      - "SG"
+      - "JP"
+      - "TW"
+      - "Proxies"
+      - "TS1"
+      - "TS2"
+      - "TS3"
+
+  - name: "Gemini"
+    type: select
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    proxies:
+      - "US"
+      - "USGJ"
+      - "HK"
+      - "SG"
+      - "JP"
+      - "TW"
+      - "Proxies"
+      - "TS1"
+      - "TS2"
+      - "TS3"
+
   - name: "AI服务"
     type: select
+    url: https://www.gstatic.com/generate_204
+    interval: 300
     proxies:
       - "US"
       - "Proxies"
@@ -93,6 +131,8 @@ proxy-groups:
 
   - name: "Paypal"
     type: select
+    url: https://www.gstatic.com/generate_204
+    interval: 300
     proxies:
       - "USGJ"
       - "US"
@@ -108,6 +148,8 @@ proxy-groups:
 
   - name: "YouTube"
     type: select
+    url: https://www.gstatic.com/generate_204
+    interval: 300
     proxies:
       - "Proxies"
       - "SG"
@@ -121,6 +163,8 @@ proxy-groups:
 
   - name: "谷歌服务"
     type: select
+    url: https://www.gstatic.com/generate_204
+    interval: 300
     proxies:
       - "Proxies"
       - "HK"
@@ -134,6 +178,8 @@ proxy-groups:
 
   - name: "谷歌FCM"
     type: select
+    url: https://www.gstatic.com/generate_204
+    interval: 300
     proxies:
       - "Proxies"
       - "HK"
@@ -147,6 +193,24 @@ proxy-groups:
 
   - name: "苹果服务"
     type: select
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    proxies:
+      - "DIRECT"
+      - "Proxies"
+      - "HK"
+      - "US"
+      - "JP"
+      - "SG"
+      - "TW"
+      - "TS1"
+      - "TS2"
+      - "TS3"
+
+  - name: "OneDrive"
+    type: select
+    url: https://www.gstatic.com/generate_204
+    interval: 300
     proxies:
       - "DIRECT"
       - "Proxies"
@@ -161,6 +225,8 @@ proxy-groups:
 
   - name: "微软服务"
     type: select
+    url: https://www.gstatic.com/generate_204
+    interval: 300
     proxies:
       - "DIRECT"
       - "Proxies"
@@ -175,6 +241,8 @@ proxy-groups:
 
   - name: "TikTok"
     type: select
+    url: https://www.gstatic.com/generate_204
+    interval: 300
     proxies:
       - "Proxies"
       - "HK"
@@ -188,6 +256,8 @@ proxy-groups:
 
   - name: "社交媒体"
     type: select
+    url: https://www.gstatic.com/generate_204
+    interval: 300
     proxies:
       - "Proxies"
       - "HK"
@@ -200,15 +270,17 @@ proxy-groups:
       - "TS3"
       - "DIRECT"
 
-  - name: "Bahamut"
-    type: select
-    proxies:
-      - "TW"
-      - "Proxies"
-      - "DIRECT"
+  # - name: "Bahamut"
+  #   type: select
+  #   proxies:
+  #     - "TW"
+  #     - "Proxies"
+  #     - "DIRECT"
 
   - name: "国外媒体"
     type: select
+    url: https://www.gstatic.com/generate_204
+    interval: 300
     proxies:
       - "Proxies"
       - "HK"
@@ -222,6 +294,8 @@ proxy-groups:
 
   - name: "国外电商"
     type: select
+    url: https://www.gstatic.com/generate_204
+    interval: 300
     proxies:
       - "Proxies"
       - "USGJ"
@@ -237,6 +311,8 @@ proxy-groups:
 
   - name: "游戏平台"
     type: select
+    url: https://www.gstatic.com/generate_204
+    interval: 300
     proxies:
       - "DIRECT"
       - "Proxies"
@@ -251,6 +327,8 @@ proxy-groups:
 
   - name: "Steam"
     type: select
+    url: https://www.gstatic.com/generate_204
+    interval: 300
     proxies:
       - "DIRECT"
       - "Proxies"
@@ -265,6 +343,8 @@ proxy-groups:
 
   - name: "测速工具"
     type: select
+    url: https://www.gstatic.com/generate_204
+    interval: 300
     proxies:
       - "DIRECT"
       - "Proxies"
@@ -279,6 +359,8 @@ proxy-groups:
 
   - name: "Final"
     type: select
+    url: https://www.gstatic.com/generate_204
+    interval: 300
     proxies:
       - "Proxies"
       - "DIRECT"
@@ -293,6 +375,8 @@ proxy-groups:
 
   - name: "非标端口"
     type: select
+    url: https://www.gstatic.com/generate_204
+    interval: 300
     proxies:
       - "Final"
       - "DIRECT"
@@ -303,33 +387,45 @@ proxy-groups:
     filter: '(?i)(🇭🇰|港|\bHK(?:[-_ ]?\d+(?:[-_ ]?[A-Za-z]{2,})?)?\b|hk|Hong Kong|HongKong|hongkong|HONG KONG|HONGKONG|深港|HKG|九龙|Kowloon|新界|沙田|荃湾|葵涌)'
     use:
       - provider1
-      
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
   - name: "US"
     type: select
     filter: '(?i)(🇺🇸|美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|纽约|纽纽|亚特兰大|迈阿密|华盛顿|\bUS(?:[-_ ]?\d+(?:[-_ ]?[A-Za-z]{2,})?)?\b|United States|UnitedStates|UNITED STATES|USA|America|AMERICA|JFK|EWR|IAD|ATL|ORD|MIA|NYC|LAX|SFO|SEA|DFW|SJC)'
     use:
       - provider1
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
 
   - name: "SG"
     type: select
     filter: '(?i)(🇸🇬|新加坡|坡|狮城|\bSG(?:[-_ ]?\d+(?:[-_ ]?[A-Za-z]{2,})?)?\b|Singapore|SINGAPORE|SIN)'
     use:
       - provider1
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
 
   - name: "JP"
     type: select
     filter: '(?i)(🇯🇵|日本|川日|东京|大阪|泉日|埼玉|沪日|深日|(?<!尼|-)日|\bJP(?:[-_ ]?\d+(?:[-_ ]?[A-Za-z]{2,})?)?\b|Japan|JAPAN|JPN|NRT|HND|KIX|TYO|OSA|关西|Kansai|KANSAI)'
     use:
       - provider1
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
 
   - name: "TW"
     type: url-test
-    url: https://cp.cloudflare.com/generate_204
     filter: '(?i)(🇹🇼|🇼🇸|台|新北|彰化|\bTW(?:[-_ ]?\d+(?:[-_ ]?[A-Za-z]{2,})?)?\b|Taiwan|TAIWAN|TWN|TPE|ROC)'
-    interval: 300
-    tolerance: 50
     use:
       - provider1
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
 
   # - name: "KR"
   #   type: select
@@ -339,36 +435,48 @@ proxy-groups:
 
   - name: "Daly"
     type: url-test
-    url: https://cp.cloudflare.com/generate_204
     filter: '日用'
-    interval: 300
-    tolerance: 50
     use:
       - provider1
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
 
   - name: "USGJ"
     type: select
     filter: '高级.*美国'
     use:
       - provider1
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
 
   - name: "TS1"
     type: select
     filter: '(阿根廷|摩尔多瓦|巴基斯坦|尼日利亚|马来西亚|乌克兰|以色列|匈牙利|西班牙|意大利|菲律宾|埃及|南非|印尼|荷兰|法国|迪拜|悉尼|印度|越南|泰国|土耳其|加拿大|巴西|德国|伦敦|韩国)'
     use:
       - provider1
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
 
   - name: "TS2"
     type: select
     filter: '(阿根廷|摩尔多瓦|巴基斯坦|尼日利亚|马来西亚|乌克兰|以色列|匈牙利|西班牙|意大利|菲律宾|埃及|南非|印尼|荷兰|法国|迪拜|悉尼|印度|越南|泰国|土耳其|加拿大|巴西|德国|伦敦|韩国)'
     use:
       - provider1
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
 
   - name: "TS3"
     type: select
     filter: '(阿根廷|摩尔多瓦|巴基斯坦|尼日利亚|马来西亚|乌克兰|以色列|匈牙利|西班牙|意大利|菲律宾|埃及|南非|印尼|荷兰|法国|迪拜|悉尼|印度|越南|泰国|土耳其|加拿大|巴西|德国|伦敦|韩国)'
     use:
       - provider1
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
 
 # ==================== 分流规则 Rules ====================
 # 规则自上而下匹配，命中首条规则后停止。
@@ -389,7 +497,10 @@ rules:
   - "GEOSITE,category-public-tracker,DIRECT"
   - "GEOSITE,category-communication,社交媒体"
   - "GEOSITE,category-social-media-!cn,社交媒体"
+  - "GEOSITE,onedrive,OneDrive"
   - "GEOSITE,openai,ChatGPT"
+  - "GEOSITE,anthropic,Claude"
+  - "GEOSITE,google-gemini,Gemini"
   - "GEOSITE,category-ai-!cn,AI服务"
   - "GEOSITE,github,GitHub"
   - "GEOSITE,category-speedtest,测速工具"
@@ -425,60 +536,53 @@ rules:
 
 # ==================== 规则提供者 Rule Providers ====================
 # Domain/IP 规则优先使用 MRS；包含端口等复合规则时使用 Classical YAML。
-# 更新周期与 Custom_Clash.ini 保持一致：28800 秒（8 小时）。
+# 所有远程规则提供者统一按 28800 秒（8 小时）更新。
 rule-providers:
   Nonstandard_Port_Direct:
     behavior: classical
     interval: 28800
     type: http
-    url: "https://testingcf.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Custom_Port_Direct.yaml"
+    url: "https://cdn.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Custom_Port_Direct.yaml"
     format: yaml
-
   Custom_Direct_Domain:
     behavior: domain
-    interval: 28800
+    interval: 1800
     type: http
-    url: "https://testingcf.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Custom_Direct_Domain.mrs"
+    url: "https://cdn.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Custom_Direct_Domain.mrs"
     format: mrs
-
   Custom_Direct_IP:
     behavior: ipcidr
     interval: 28800
     type: http
-    url: "https://testingcf.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Custom_Direct_IP.mrs"
+    url: "https://cdn.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Custom_Direct_IP.mrs"
     format: mrs
-
   Custom_Direct_Port:
     behavior: classical
     interval: 28800
     type: http
-    url: "https://testingcf.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Custom_Direct_Classical_Port.yaml"
+    url: "https://cdn.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Custom_Direct_Classical_Port.yaml"
     format: yaml
-
   Custom_Proxy_Domain:
     behavior: domain
     interval: 28800
     type: http
-    url: "https://testingcf.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Custom_Proxy_Domain.mrs"
+    url: "https://cdn.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Custom_Proxy_Domain.mrs"
     format: mrs
-
   Custom_Proxy_IP:
     behavior: ipcidr
     interval: 28800
     type: http
-    url: "https://testingcf.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Custom_Proxy_IP.mrs"
+    url: "https://cdn.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Custom_Proxy_IP.mrs"
     format: mrs
-
   Steam_CDN_Domain:
     behavior: domain
     interval: 28800
     type: http
-    url: "https://testingcf.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Steam_CDN_Domain.mrs"
+    url: "https://cdn.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Steam_CDN_Domain.mrs"
     format: mrs
-
   Steam_CDN_IP:
     behavior: ipcidr
     interval: 28800
     type: http
-    url: "https://testingcf.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Steam_CDN_IP.mrs"
+    url: "https://cdn.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Steam_CDN_IP.mrs"
     format: mrs
