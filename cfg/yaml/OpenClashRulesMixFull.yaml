@@ -518,7 +518,7 @@ rules:
   - "GEOSITE,primevideo,国外媒体"
   - "GEOSITE,category-emby,国外媒体"
   - "GEOSITE,spotify,国外媒体"
-  - "GEOSITE,bahamut,Bahamut"
+  # - "GEOSITE,bahamut,Bahamut"
   - "GEOSITE,paypal,Paypal"
   - "GEOSITE,category-games,游戏平台"
   - "GEOSITE,category-entertainment,国外媒体"
